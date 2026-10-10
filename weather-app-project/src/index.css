@@ -1,0 +1,55 @@
+:root {
+  /*ROOTS FOR FONTS*/
+  --font-dmSans: "DM Sans", sans-serif;
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
+
+  /*ROOTS FOR COLORS*/
+  --Blue-500: hsl(233, 67%, 56%);
+  --Blue-700: hsl(248, 70%, 36%);
+
+  --Orange-500: hsl(28, 100%, 52%);
+
+  --Neutral-900: hsl(243, 96%, 9%);
+  --Neutral-800: hsl(243, 27%, 20%);
+  --Neutral-700: hsl(243, 23%, 24%);
+  --Neutral-600: hsl(243, 23%, 30%);
+  --Neutral-300: hsl(240, 6%, 70%);
+  --Neutral-200: hsl(250, 6%, 84%);
+  --Neutral-0: hsl(0, 0%, 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: var(--font-dmSans);
+  height: 100%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background: var(--Neutral-900);
+  color: var(--Neutral-0);
+  margin: 0;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
