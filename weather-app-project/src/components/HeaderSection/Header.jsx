@@ -1,3 +1,4 @@
+import { DropDown } from "./DropDown";
 import "./Header.css";
 
 export function Header() {
@@ -10,6 +11,8 @@ export function Header() {
         <p>Units</p>
         <img class="big-icons" src="/images/icon-dropdown.svg" />
       </button>
+
+      <DropDown />
     </header>
   );
 }
