@@ -2,7 +2,7 @@ import "./DropDown.css";
 
 export function DropDown() {
   return (
-    <section className="dropdown">
+    <section className="dropdown no-display">
       <div className="dropdown-section switch-section">
         <button className="dropdown-button">Switch to imperial</button>
       </div>

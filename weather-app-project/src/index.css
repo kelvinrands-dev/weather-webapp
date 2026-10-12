@@ -3,6 +3,11 @@
   --font-dmSans: "DM Sans", sans-serif;
   --font-bricolage: "Bricolage Grotesque", sans-serif;
 
+  /*ROOTS FOR SIZING*/
+  --bd-radius-s: 0.5rem;
+  --bd-radius-m: 0.75rem;
+  --bd-radius-l: 1rem;
+
   /*ROOTS FOR COLORS*/
   --Blue-500: hsl(233, 67%, 56%);
   --Blue-700: hsl(248, 70%, 36%);
@@ -30,7 +35,7 @@ html,
 body {
   font-family: var(--font-dmSans);
   height: 100%;
-  line-height: 1.5;
+  /*line-height: 1.5;*/
   -webkit-font-smoothing: antialiased;
   background: var(--Neutral-900);
   color: var(--Neutral-0);
