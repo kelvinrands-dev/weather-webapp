@@ -10,7 +10,7 @@ export function DropDown() {
       <div className="dropdown-section temperature-section">
         <p className="dropdown-text">Temperature</p>
         <button className="dropdown-button">Celsius (°C)</button>
-        <button className="dropdown-button">Fahrenheit (°C)</button>
+        <button className="dropdown-button">Fahrenheit (°F)</button>
       </div>
 
       <div className="dropdown-section windspeed-section">

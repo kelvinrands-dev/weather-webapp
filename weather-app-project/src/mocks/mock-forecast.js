@@ -1,6 +1,6 @@
 export const geoCodingApi = {
   name: "Dallas",
-  country: "Germany",
+  country: "United States",
 };
 
 export const forecastApi = {
