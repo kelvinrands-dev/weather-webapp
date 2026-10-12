@@ -1,0 +1,16 @@
+.daily-forecast-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.daily-forecast-section > :nth-child(1) {
+  font-size: 1.25rem;
+  font-weight: var(--weight-bold);
+}
+
+.daily-forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}

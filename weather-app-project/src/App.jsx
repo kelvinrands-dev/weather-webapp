@@ -1,9 +1,9 @@
 import { useState } from "react";
-
 import { Header } from "./components/HeaderSection/Header";
 import { SearchPlace } from "./components/SearchSection/SearchPlace";
 import { CurrentForecastUi } from "./components/CurrentForecastSection/CurrentForecastUi";
 import { geoCodingApi, forecastApi } from "./mocks/mock-forecast";
+import { DailyForecastUi } from "./components/DailyForecastSection/DailyForecastUi";
 import "./App.css";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
           cityLocation={cityLocation}
           weatherForecast={weatherForecast}
         />
+        <DailyForecastUi weatherForecast={weatherForecast} />
       </div>
     </div>
   );

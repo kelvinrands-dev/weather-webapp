@@ -1,0 +1,23 @@
+.day-box {
+  align-items: center;
+  height: 10rem;
+}
+
+.day-box > :nth-child(1) {
+  font-size: 1.25rem;
+  font-weight: var(--weight-semibold);
+}
+
+.day-box-temps {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.day-box-temps > :nth-child(1) {
+  font-weight: var(--weight-semibold);
+}
+
+.day-box-temps > :nth-child(2) {
+  color: var(--Neutral-200);
+}
