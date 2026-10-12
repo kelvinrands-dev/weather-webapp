@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: var(--pad-section);
   gap: 1.5rem;
 }
 
@@ -42,6 +42,7 @@
 .search-input::placeholder {
   color: var(--Neutral-200);
   opacity: 1;
+  font-weight: var(--weight-semibold);
 }
 
 .search-btn {
@@ -50,4 +51,5 @@
   text-align: center;
   padding: 0.75rem 1rem;
   border-radius: var(--bd-radius-s);
+  font-weight: var(--weight-semibold);
 }

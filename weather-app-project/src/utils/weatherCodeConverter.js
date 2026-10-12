@@ -1,4 +1,4 @@
-export const weatherCode = (code) => {
+export const weatherCodeConverter = (code) => {
   code = Number(code);
 
   if (code === 0 || code === 1) {

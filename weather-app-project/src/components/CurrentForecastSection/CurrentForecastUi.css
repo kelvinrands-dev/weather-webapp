@@ -1,3 +1,9 @@
+.current-forecast-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .current-forecast-bg {
   display: flex;
   flex-direction: column;
@@ -29,7 +35,7 @@
 
 .today-date {
   color: var(--Neutral-200);
-  font-weight: bold;
+  font-weight: var(--weight-semibold);
 }
 
 .current-forecast-bg > :nth-child(2) {

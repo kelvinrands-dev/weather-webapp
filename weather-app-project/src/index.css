@@ -3,10 +3,19 @@
   --font-dmSans: "DM Sans", sans-serif;
   --font-bricolage: "Bricolage Grotesque", sans-serif;
 
-  /*ROOTS FOR SIZING*/
+  /*ROOTS FOR BORDER*/
   --bd-radius-s: 0.5rem;
   --bd-radius-m: 0.75rem;
   --bd-radius-l: 1rem;
+  --bd-color: 2px solid var(--Neutral-700);
+
+  /*ROOTS FOR PADDING*/
+  --pad-section: 1rem 0;
+
+  /*FONT-WEIGHTS*/
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: bold;
 
   /*ROOTS FOR COLORS*/
   --Blue-500: hsl(233, 67%, 56%);
