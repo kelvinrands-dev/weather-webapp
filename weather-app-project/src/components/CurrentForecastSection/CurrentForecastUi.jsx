@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { weatherCode } from "../../utils/weatherCode";
 import "./CurrentForecastUi.css";
 
 export function CurrentForecastUi({ cityLocation, weatherForecast }) {
@@ -17,7 +18,10 @@ export function CurrentForecastUi({ cityLocation, weatherForecast }) {
           </p>
         </div>
         <div>
-          <img className="weather-icon" src="images/icon-sunny.webp"></img>
+          <img
+            className="weather-icon"
+            src={weatherCode(currentWeather.weather_code)}
+          ></img>
           <p className="big-temperature">{`${Math.round(currentWeather.temperature_2m)}°`}</p>
         </div>
       </div>
