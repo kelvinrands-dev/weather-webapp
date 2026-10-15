@@ -1,0 +1,48 @@
+import { useState } from "react";
+import dayjs from "dayjs";
+import { DaysDrop } from "./DaysDrop";
+import { HourFlex } from "./HourFlex";
+import "./HourlyForecastUi.css";
+
+export function HourlyForecastUi({ weatherForecast }) {
+  const [activeDayIndex, setActiveDayIndex] = useState(0);
+  const [showDropDown, setShowDropDown] = useState(false);
+
+  const weekDays = weatherForecast.daily.time;
+  const { time, temperature_2m, weather_code } = weatherForecast.hourly;
+
+  const hourObj = weekDays.map((d, index) => {
+    const startIndex = index * 24;
+    const endIndex = startIndex + 24;
+
+    return {
+      dayOfWeek: dayjs(d).format("dddd"),
+      hours: time.slice(startIndex, endIndex),
+      wcodes: weather_code.slice(startIndex, endIndex),
+      temps: temperature_2m.slice(startIndex, endIndex),
+    };
+  });
+
+  const activeDay = hourObj[activeDayIndex];
+
+  //EVENT LISTENERS STUFF
+  const handleClick = () => {
+    setShowDropDown(!showDropDown);
+  };
+
+  return (
+    <div className="hourly-section">
+      <div className="hourly-header">
+        <p>Hourly forecast</p>
+        <button className="day-dropdown-btn" onClick={handleClick}>
+          <p>{activeDay.dayOfWeek}</p>
+          <img className="big-icons" src="/images/icon-dropdown.svg" />
+        </button>
+
+        <DaysDrop hourObj={hourObj} showDropDown={showDropDown} />
+      </div>
+
+      <HourFlex activeDay={activeDay} />
+    </div>
+  );
+}

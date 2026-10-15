@@ -4,6 +4,7 @@ import { SearchPlace } from "./components/SearchSection/SearchPlace";
 import { CurrentForecastUi } from "./components/CurrentForecastSection/CurrentForecastUi";
 import { geoCodingApi, forecastApi } from "./mocks/mock-forecast";
 import { DailyForecastUi } from "./components/DailyForecastSection/DailyForecastUi";
+import { HourlyForecastUi } from "./components/HourlyForecastSection/HourlyForecastUi.jsx";
 import "./App.css";
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         />
         <DailyForecastUi weatherForecast={weatherForecast} />
       </div>
+
+      <HourlyForecastUi weatherForecast={weatherForecast} />
     </div>
   );
 }

@@ -1,0 +1,24 @@
+.hbox {
+  background: var(--Neutral-700);
+  border-radius: var(--bd-radius-m);
+  border: 2px solid var(--Neutral-600);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.wcode-and-time {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wcode-and-time > :nth-child(1) {
+  width: 3rem;
+  margin: -1rem;
+}
+
+.hbox > :nth-child(2) {
+  font-weight: var(--weight-medium);
+}
