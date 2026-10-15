@@ -20,10 +20,19 @@
   font-weight: var(--weight-bold);
 }
 
+.hourly-dropdown-icon {
+  width: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.hourly-dropdown-icon-rotated {
+  transform: rotate(180deg);
+}
+
 .day-dropdown-btn {
   all: unset;
   background: var(--Neutral-600);
-  width: 5rem;
+  /* width: 7rem;*/
   display: flex;
   align-items: center;
   justify-content: center;

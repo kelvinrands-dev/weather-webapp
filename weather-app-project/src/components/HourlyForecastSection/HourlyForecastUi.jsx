@@ -27,19 +27,29 @@ export function HourlyForecastUi({ weatherForecast }) {
 
   //EVENT LISTENERS STUFF
   const handleClick = () => {
-    setShowDropDown(!showDropDown);
+    setShowDropDown((prev) => !prev);
   };
 
   return (
     <div className="hourly-section">
       <div className="hourly-header">
         <p>Hourly forecast</p>
+
         <button className="day-dropdown-btn" onClick={handleClick}>
           <p>{activeDay.dayOfWeek}</p>
-          <img className="big-icons" src="/images/icon-dropdown.svg" />
+          <img
+            className={`hourly-dropdown-icon ${showDropDown ? "hourly-dropdown-icon-rotated" : ""}`}
+            src="/images/icon-dropdown.svg"
+          />
         </button>
 
-        <DaysDrop hourObj={hourObj} showDropDown={showDropDown} />
+        <DaysDrop
+          hourObj={hourObj}
+          showDropDown={showDropDown}
+          activeDayIndex={activeDayIndex}
+          setActiveDayIndex={setActiveDayIndex}
+          setShowDropDown={setShowDropDown}
+        />
       </div>
 
       <HourFlex activeDay={activeDay} />

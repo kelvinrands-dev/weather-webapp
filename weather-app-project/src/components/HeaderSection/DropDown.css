@@ -38,3 +38,7 @@
 .windspeed-section {
   border-bottom: 2px solid var(--Neutral-600);
 }
+
+.dropdown.no-display {
+  display: none;
+}
