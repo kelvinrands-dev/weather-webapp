@@ -1,0 +1,23 @@
+.search-dropdown {
+  position: absolute;
+  transform: translateY(7rem);
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  background: var(--Neutral-800);
+  border-radius: var(--bd-radius-s);
+  padding: 0.75rem 1rem;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.search-in-progress {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.city-locations {
+  all: unset;
+  font-size: 0.75rem;
+}
