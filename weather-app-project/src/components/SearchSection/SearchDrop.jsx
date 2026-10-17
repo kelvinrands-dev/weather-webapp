@@ -3,7 +3,8 @@ import "./SearchDrop.css";
 export function SearchDrop({ showSearchDrop, searchResults, searchStatus }) {
   if (showSearchDrop === false) return null;
 
-  /*console.log("current isResolved", searchStatus.isResolved);*/
+  const updateCityLocation = (index) => {};
+
   return (
     <section className="search-dropdown">
       {searchStatus.isLoading && (
@@ -18,7 +19,11 @@ export function SearchDrop({ showSearchDrop, searchResults, searchStatus }) {
             .filter(Boolean)
             .join(", ");
           return (
-            <button key={index} className="city-locations">
+            <button
+              key={index}
+              className="city-locations"
+              onClick={() => updateCityLocation(index)}
+            >
               {locationName}
             </button>
           );
