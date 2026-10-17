@@ -10,25 +10,33 @@ export function SearchPlace() {
   const [searchStatus, setSearchStatus] = useState({
     isLoading: false,
     isResolved: false,
+    notFound: false,
     error: null,
   });
 
   const handleSearch = async () => {
     setShowSearchDrop(true);
-    setSearchStatus((prev) => ({ ...prev, isLoading: true }));
+    setSearchStatus((prev) => ({
+      ...prev,
+      isLoading: true,
+      isResolved: false,
+      notFound: false,
+    }));
+    let searchResponse;
     try {
-      const searchResponse = await axios.get(
+      const res = await axios.get(
         `https://geocoding-api.open-meteo.com/v1/search?name=${searchInput}`,
       );
-      setSearchResults(searchResponse.data.results || []);
-      console.log(searchResponse.data);
+      searchResponse = res.data.results || [];
+      setSearchResults(searchResponse);
     } catch (err) {
       console.log(err.message);
     } finally {
       setSearchStatus((prev) => ({
         ...prev,
         isLoading: false,
-        isResolved: searchResults.length === 0 ? true : false,
+        isResolved: searchResponse.length > 0 ? true : false,
+        notFound: searchResponse.length === 0 ? true : false,
       }));
     }
   };
@@ -58,6 +66,9 @@ export function SearchPlace() {
             placeholder="Search for a place..."
             onChange={(e) => {
               setSearchInput(e.target.value);
+              if (e.target.value === "") {
+                setShowSearchDrop(false);
+              }
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
