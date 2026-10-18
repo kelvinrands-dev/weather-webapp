@@ -3,19 +3,23 @@ import "./DailyForecastUi.css";
 import { DayBox } from "./DayBox";
 
 export function DailyForecastUi({ weatherForecast, appIsLoading }) {
-  const dailyWeather = weatherForecast.daily;
+  let dailyCombined;
 
-  const { time, weather_code, temperature_2m_max, temperature_2m_min } =
-    dailyWeather;
+  if (!appIsLoading) {
+    const dailyWeather = weatherForecast.daily;
+    const { time, weather_code, temperature_2m_max, temperature_2m_min } =
+      dailyWeather;
 
-  const dailyCombined = time.map((t, index) => {
-    return {
-      date: dayjs(t).format("ddd"),
-      weatherCode: weather_code[index],
-      tempMax: temperature_2m_max[index],
-      tempMin: temperature_2m_min[index],
-    };
-  });
+    dailyCombined = time.map((t, index) => {
+      return {
+        date: dayjs(t).format("ddd"),
+        weatherCode: weather_code[index],
+        tempMax: temperature_2m_max[index],
+        tempMin: temperature_2m_min[index],
+      };
+    });
+  }
+
   const loadArr = Array.from({ length: 7 });
   return (
     <section className="daily-forecast-section">

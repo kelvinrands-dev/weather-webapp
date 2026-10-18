@@ -7,23 +7,27 @@ import "./HourlyForecastUi.css";
 export function HourlyForecastUi({ weatherForecast, appIsLoading }) {
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   const [showDropDown, setShowDropDown] = useState(false);
+  let activeDay;
+  let hourObj;
 
-  const weekDays = weatherForecast.daily.time;
-  const { time, temperature_2m, weather_code } = weatherForecast.hourly;
+  if (!appIsLoading) {
+    const weekDays = weatherForecast.daily.time;
+    const { time, temperature_2m, weather_code } = weatherForecast.hourly;
 
-  const hourObj = weekDays.map((d, index) => {
-    const startIndex = index * 24;
-    const endIndex = startIndex + 24;
+    hourObj = weekDays.map((d, index) => {
+      const startIndex = index * 24;
+      const endIndex = startIndex + 24;
 
-    return {
-      dayOfWeek: dayjs(d).format("dddd"),
-      hours: time.slice(startIndex, endIndex),
-      wcodes: weather_code.slice(startIndex, endIndex),
-      temps: temperature_2m.slice(startIndex, endIndex),
-    };
-  });
+      return {
+        dayOfWeek: dayjs(d).format("dddd"),
+        hours: time.slice(startIndex, endIndex),
+        wcodes: weather_code.slice(startIndex, endIndex),
+        temps: temperature_2m.slice(startIndex, endIndex),
+      };
+    });
 
-  const activeDay = hourObj[activeDayIndex];
+    activeDay = hourObj[activeDayIndex];
+  }
 
   //EVENT LISTENERS STUFF
   const handleClick = () => {

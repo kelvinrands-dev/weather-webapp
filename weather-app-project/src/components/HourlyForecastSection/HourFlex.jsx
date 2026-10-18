@@ -1,7 +1,14 @@
 import { HourBox } from "./HourBox";
 
 export function HourFlex({ activeDay, appIsLoading }) {
-  const { hours, wcodes, temps } = activeDay;
+  let hours;
+  let wcodes;
+  let temps;
+  if (!appIsLoading) {
+    hours = activeDay.hours;
+    wcodes = activeDay.wcodes;
+    temps = activeDay.temps;
+  }
 
   const loadArr = Array.from({ length: 24 });
 

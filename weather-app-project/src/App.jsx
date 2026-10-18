@@ -12,13 +12,19 @@ import "./App.css";
 
 function App() {
   const [cityLocation, setCityLocation] = useState({});
-  const [weatherForecast, setWeatherForecast] = useState(forecastApi);
+  const [weatherForecast, setWeatherForecast] = useState({});
   const [appIsLoading, setAppIsLoading] = useState(true);
+  const [locationResolved, setLocationResolved] = useState(false);
 
-  useDefaultLocation(setCityLocation, setAppIsLoading);
+  useDefaultLocation(setCityLocation, setAppIsLoading, setLocationResolved);
   //console.log(cityLocation);
 
-  useFetchWeather(cityLocation, setWeatherForecast);
+  useFetchWeather(
+    cityLocation,
+    setWeatherForecast,
+    setAppIsLoading,
+    locationResolved,
+  );
 
   return (
     <div className="app-container">

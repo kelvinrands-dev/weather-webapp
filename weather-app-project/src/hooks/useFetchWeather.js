@@ -1,8 +1,15 @@
 import axios from "axios";
 import { useEffect } from "react";
 
-export function useFetchWeather(cityLocation, setWeatherForecast) {
+export function useFetchWeather(
+  cityLocation,
+  setWeatherForecast,
+  setAppIsLoading,
+  locationResolved,
+) {
   useEffect(() => {
+    if (!locationResolved) return;
+
     const fetchForecast = async () => {
       try {
         const res = await axios.get("https://api.open-meteo.com/v1/forecast", {
@@ -27,12 +34,14 @@ export function useFetchWeather(cityLocation, setWeatherForecast) {
             timezone: "auto",
           },
         });
-        //setWeatherForecast(res.data);
+
+        setWeatherForecast(res.data);
+        setAppIsLoading(false);
       } catch (error) {
         console.error("Error fetching forecast:", error.message);
       }
     };
 
     fetchForecast();
-  }, [cityLocation, setWeatherForecast]);
+  }, [cityLocation, setWeatherForecast, setAppIsLoading, locationResolved]);
 }
