@@ -36,7 +36,7 @@ export function HourlyForecastUi({ weatherForecast, appIsLoading }) {
         <p>Hourly forecast</p>
 
         <button className="day-dropdown-btn" onClick={handleClick}>
-          <p>{activeDay.dayOfWeek}</p>
+          <p>{appIsLoading ? <>-</> : activeDay.dayOfWeek}</p>
           <img
             className={`hourly-dropdown-icon ${showDropDown ? "hourly-dropdown-icon-rotated" : ""}`}
             src="/images/icon-dropdown.svg"
@@ -53,7 +53,7 @@ export function HourlyForecastUi({ weatherForecast, appIsLoading }) {
         />
       </div>
 
-      <HourFlex activeDay={activeDay} />
+      <HourFlex activeDay={activeDay} appIsLoading={appIsLoading} />
     </div>
   );
 }

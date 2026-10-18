@@ -12,7 +12,6 @@ export function CurrentForecastUi({
 
   const currentWeather = weatherForecast.current;
   const currentWeatherUnits = weatherForecast.current_units;
-  console.log(appIsLoading);
 
   return (
     <section className="current-forecast-section">
