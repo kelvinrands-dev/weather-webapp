@@ -36,7 +36,10 @@ function App() {
         />
       </div>
 
-      <HourlyForecastUi weatherForecast={weatherForecast} />
+      <HourlyForecastUi
+        weatherForecast={weatherForecast}
+        appIsLoading={appIsLoading}
+      />
     </div>
   );
 }

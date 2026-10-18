@@ -6,6 +6,7 @@ export function DaysDrop({
   activeDayIndex,
   setActiveDayIndex,
   setShowDropDown,
+  appIsLoading,
 }) {
   if (showDropDown === true) {
     const handleClick = (index) => {
@@ -15,19 +16,23 @@ export function DaysDrop({
 
     return (
       <section className="days-dropdown">
-        {hourObj.map((day, index) => {
-          return (
-            <button
-              className={`day-btn ${activeDayIndex === index ? "day-btn-active" : ""}`}
-              onClick={() => {
-                handleClick(index);
-              }}
-              key={day}
-            >
-              {day.dayOfWeek}
-            </button>
-          );
-        })}
+        {appIsLoading ? (
+          <></>
+        ) : (
+          hourObj.map((day, index) => {
+            return (
+              <button
+                className={`day-btn ${activeDayIndex === index ? "day-btn-active" : ""}`}
+                onClick={() => {
+                  handleClick(index);
+                }}
+                key={index}
+              >
+                {day.dayOfWeek}
+              </button>
+            );
+          })
+        )}
       </section>
     );
   }

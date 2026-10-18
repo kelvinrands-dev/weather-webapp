@@ -4,7 +4,7 @@ import { DaysDrop } from "./DaysDrop";
 import { HourFlex } from "./HourFlex";
 import "./HourlyForecastUi.css";
 
-export function HourlyForecastUi({ weatherForecast }) {
+export function HourlyForecastUi({ weatherForecast, appIsLoading }) {
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   const [showDropDown, setShowDropDown] = useState(false);
 
@@ -49,6 +49,7 @@ export function HourlyForecastUi({ weatherForecast }) {
           activeDayIndex={activeDayIndex}
           setActiveDayIndex={setActiveDayIndex}
           setShowDropDown={setShowDropDown}
+          appIsLoading={appIsLoading}
         />
       </div>
 
