@@ -30,7 +30,10 @@ function App() {
           weatherForecast={weatherForecast}
           appIsLoading={appIsLoading}
         />
-        <DailyForecastUi weatherForecast={weatherForecast} />
+        <DailyForecastUi
+          weatherForecast={weatherForecast}
+          appIsLoading={appIsLoading}
+        />
       </div>
 
       <HourlyForecastUi weatherForecast={weatherForecast} />

@@ -44,6 +44,7 @@ export function CurrentForecastUi({
       <CurrentForecastGrid
         currentWeather={currentWeather}
         currentWeatherUnits={currentWeatherUnits}
+        appIsLoading={appIsLoading}
       />
     </section>
   );
