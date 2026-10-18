@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 
-export function useDefaultLocation(setCityLocation) {
+export function useDefaultLocation(setCityLocation, setAppIsLoading) {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -20,6 +20,7 @@ export function useDefaultLocation(setCityLocation) {
           latitude: resData.latitude,
         };
         setCityLocation(userLocation);
+        setAppIsLoading(false);
       },
       (error) => {
         /*  ERROR.CODE RETURNS THREE NUMBERS, NAMELY: 1,2,3
@@ -38,8 +39,9 @@ export function useDefaultLocation(setCityLocation) {
             longitude: 3.3792,
           };
           setCityLocation(defaultLocation);
+          setAppIsLoading(false);
         }
       },
     );
-  }, [setCityLocation]);
+  }, [setCityLocation, setAppIsLoading]);
 }

@@ -13,9 +13,9 @@ import "./App.css";
 function App() {
   const [cityLocation, setCityLocation] = useState({});
   const [weatherForecast, setWeatherForecast] = useState(forecastApi);
-  const [appStatus, setAppStatus] = useState({ isLoading: false });
+  const [appIsLoading, setAppIsLoading] = useState(true);
 
-  useDefaultLocation(setCityLocation);
+  useDefaultLocation(setCityLocation, setAppIsLoading);
   //console.log(cityLocation);
 
   useFetchWeather(cityLocation, setWeatherForecast);
@@ -28,6 +28,7 @@ function App() {
         <CurrentForecastUi
           cityLocation={cityLocation}
           weatherForecast={weatherForecast}
+          appIsLoading={appIsLoading}
         />
         <DailyForecastUi weatherForecast={weatherForecast} />
       </div>
