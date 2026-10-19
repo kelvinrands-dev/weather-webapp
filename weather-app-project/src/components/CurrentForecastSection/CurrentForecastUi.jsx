@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import { weatherCodeConverter } from "../../utils/weatherCodeConverter";
 import { CurrentForecastGrid } from "./CurrentForecastGrid";
 import "./CurrentForecastUi.css";
+import LoadingGif from "../../assets/loading.gif";
 
 export function CurrentForecastUi({
   cityLocation,
@@ -18,7 +19,7 @@ export function CurrentForecastUi({
       {appIsLoading ? (
         <div className="current-forecast-bg currrent-forecast-bg-loading">
           <div>
-            <img src="images/icon-loading.svg" />
+            <img className="loading-gif" src={LoadingGif} />
             <p>Loading</p>
           </div>
         </div>

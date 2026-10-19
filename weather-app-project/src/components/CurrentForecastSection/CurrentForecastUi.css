@@ -7,10 +7,9 @@
 .current-forecast-bg {
   display: flex;
   flex-direction: column;
-  /* background: url(PATH) REPEAT POSITION / SIZE; */
-  background: url("images/bg-today-small.svg") no-repeat center / cover;
+  background: url("/images/bg-today-small.svg") no-repeat center / cover;
   height: 17rem;
-  width: 100%rem;
+  width: 100%;
   border-radius: var(--bd-radius-l);
   padding: 3rem;
   gap: 1rem;
@@ -78,4 +77,9 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+}
+
+.loading-gif {
+  margin: -1rem 0;
+  width: 5rem;
 }

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { DropDown } from "./DropDown";
 import "./Header.css";
+import LogoIcon from "../../assets/logo.svg";
 
 export function Header({ weatherForecast, appIsLoading, setCurrentUnits }) {
   const [showUnitsDrop, setShowUnitsDrop] = useState(false);
 
   return (
     <header className="app-header">
-      <img className="weather-now-logo" src="../../public/images/logo.svg" />
+      <img className="weather-now-logo" src={LogoIcon} />
 
       <button
         className="units-button"
