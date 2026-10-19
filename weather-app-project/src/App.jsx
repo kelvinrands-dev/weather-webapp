@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header />
+      <Header weatherForecast={weatherForecast} appIsLoading={appIsLoading} />
       <SearchPlace
         setCityLocation={setCityLocation}
         setAppIsLoading={setAppIsLoading}
