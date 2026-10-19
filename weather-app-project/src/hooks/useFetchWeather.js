@@ -6,11 +6,13 @@ export function useFetchWeather(
   setWeatherForecast,
   setAppIsLoading,
   locationResolved,
+  currentUnits,
 ) {
   useEffect(() => {
     if (!locationResolved) return;
 
     const fetchForecast = async () => {
+      setAppIsLoading(true);
       try {
         const res = await axios.get("https://api.open-meteo.com/v1/forecast", {
           params: {
@@ -32,6 +34,9 @@ export function useFetchWeather(
               "temperature_2m_min",
             ].join(","),
             timezone: "auto",
+            temperature_unit: currentUnits.temperature || undefined,
+            wind_speed_unit: currentUnits.windSpeed || undefined,
+            precipitation_unit: currentUnits.precipitation || undefined,
           },
         });
 
@@ -43,5 +48,11 @@ export function useFetchWeather(
     };
 
     fetchForecast();
-  }, [cityLocation, setWeatherForecast, setAppIsLoading, locationResolved]);
+  }, [
+    cityLocation,
+    setWeatherForecast,
+    setAppIsLoading,
+    locationResolved,
+    currentUnits,
+  ]);
 }

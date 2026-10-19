@@ -13,20 +13,29 @@ export function useDefaultLocation(
           const longitude = position.coords.longitude;
           const latitude = position.coords.latitude;
 
-          const res = await axios.get(
-            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}`,
-          );
-          const resData = res.data;
+          try {
+            const res = await axios.get(
+              `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`,
+            );
+            const resData = res.data;
 
-          const userLocation = {
-            name: resData.city,
-            country: resData.countryName,
-            longitude: resData.longitude,
-            latitude: resData.latitude,
-          };
+            const userLocation = {
+              name:
+                resData.address.city ||
+                resData.address.town ||
+                resData.address.village ||
+                resData.address.state ||
+                "Unknown",
+              country: resData.address.country,
+              longitude: resData.lon,
+              latitude: resData.lat,
+            };
 
-          setCityLocation(userLocation);
-          setLocationResolved(true);
+            setCityLocation(userLocation);
+            setLocationResolved(true);
+          } catch (error) {
+            console.log(error);
+          }
         },
         (error) => {
           /*  ERROR.CODE RETURNS THREE NUMBERS, NAMELY: 1,2,3

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { DropDown } from "./DropDown";
 import "./Header.css";
 
-export function Header({ weatherForecast, appIsLoading }) {
+export function Header({ weatherForecast, appIsLoading, setCurrentUnits }) {
   const [showUnitsDrop, setShowUnitsDrop] = useState(false);
 
   return (
@@ -27,6 +27,8 @@ export function Header({ weatherForecast, appIsLoading }) {
         <DropDown
           showUnitsDrop={showUnitsDrop}
           weatherForecast={weatherForecast}
+          setCurrentUnits={setCurrentUnits}
+          setShowUnitsDrop={setShowUnitsDrop}
         />
       )}
     </header>

@@ -15,6 +15,11 @@ function App() {
   const [weatherForecast, setWeatherForecast] = useState({});
   const [appIsLoading, setAppIsLoading] = useState(true);
   const [locationResolved, setLocationResolved] = useState(false);
+  const [currentUnits, setCurrentUnits] = useState({
+    temperature: null,
+    windSpeed: null,
+    precipitation: null,
+  });
 
   useDefaultLocation(setCityLocation, setAppIsLoading, setLocationResolved);
 
@@ -23,11 +28,16 @@ function App() {
     setWeatherForecast,
     setAppIsLoading,
     locationResolved,
+    currentUnits,
   );
 
   return (
     <div className="app-container">
-      <Header weatherForecast={weatherForecast} appIsLoading={appIsLoading} />
+      <Header
+        weatherForecast={weatherForecast}
+        appIsLoading={appIsLoading}
+        setCurrentUnits={setCurrentUnits}
+      />
       <SearchPlace
         setCityLocation={setCityLocation}
         setAppIsLoading={setAppIsLoading}
