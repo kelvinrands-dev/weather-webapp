@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./DropDown.css";
 import CheckMarkIcon from "../../assets/icons/icon-checkmark.svg";
 

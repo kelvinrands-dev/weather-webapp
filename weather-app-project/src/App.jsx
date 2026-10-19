@@ -6,6 +6,7 @@ import { CurrentForecastUi } from "./components/CurrentForecastSection/CurrentFo
 import { geoCodingApi, forecastApi } from "./mocks/mock-forecast";
 import { DailyForecastUi } from "./components/DailyForecastSection/DailyForecastUi";
 import { HourlyForecastUi } from "./components/HourlyForecastSection/HourlyForecastUi.jsx";
+import { ErrorUi } from "./components/ErrorScreen/ErrorUi.jsx";
 import { useDefaultLocation } from "./hooks/useDefaultLocation.js";
 import { useFetchWeather } from "./hooks/useFetchWeather.js";
 import "./App.css";
@@ -14,6 +15,7 @@ function App() {
   const [cityLocation, setCityLocation] = useState({});
   const [weatherForecast, setWeatherForecast] = useState({});
   const [appIsLoading, setAppIsLoading] = useState(true);
+  const [appError, setAppError] = useState(false);
   const [locationResolved, setLocationResolved] = useState(false);
   const [currentUnits, setCurrentUnits] = useState({
     temperature: null,
@@ -21,7 +23,12 @@ function App() {
     precipitation: null,
   });
 
-  useDefaultLocation(setCityLocation, setAppIsLoading, setLocationResolved);
+  useDefaultLocation(
+    setCityLocation,
+    setAppIsLoading,
+    setLocationResolved,
+    setAppError,
+  );
 
   useFetchWeather(
     cityLocation,
@@ -29,6 +36,7 @@ function App() {
     setAppIsLoading,
     locationResolved,
     currentUnits,
+    setAppError,
   );
 
   return (
@@ -42,22 +50,29 @@ function App() {
         setCityLocation={setCityLocation}
         setAppIsLoading={setAppIsLoading}
       />
-      <div className="weather-flex">
-        <CurrentForecastUi
-          cityLocation={cityLocation}
-          weatherForecast={weatherForecast}
-          appIsLoading={appIsLoading}
-        />
-        <DailyForecastUi
-          weatherForecast={weatherForecast}
-          appIsLoading={appIsLoading}
-        />
-      </div>
 
-      <HourlyForecastUi
-        weatherForecast={weatherForecast}
-        appIsLoading={appIsLoading}
-      />
+      {appError && <ErrorUi />}
+
+      {!appError && (
+        <div className="weather-flex">
+          <CurrentForecastUi
+            cityLocation={cityLocation}
+            weatherForecast={weatherForecast}
+            appIsLoading={appIsLoading}
+          />
+          <DailyForecastUi
+            weatherForecast={weatherForecast}
+            appIsLoading={appIsLoading}
+          />
+        </div>
+      )}
+
+      {!appError && (
+        <HourlyForecastUi
+          weatherForecast={weatherForecast}
+          appIsLoading={appIsLoading}
+        />
+      )}
     </div>
   );
 }

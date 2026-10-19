@@ -7,6 +7,7 @@ export function useFetchWeather(
   setAppIsLoading,
   locationResolved,
   currentUnits,
+  setAppError,
 ) {
   useEffect(() => {
     if (!locationResolved) return;
@@ -44,6 +45,7 @@ export function useFetchWeather(
         setAppIsLoading(false);
       } catch (error) {
         console.error("Error fetching forecast:", error.message);
+        setAppError(true);
       }
     };
 

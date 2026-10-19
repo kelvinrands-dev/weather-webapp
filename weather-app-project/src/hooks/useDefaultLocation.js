@@ -5,6 +5,7 @@ export function useDefaultLocation(
   setCityLocation,
   setAppIsLoading,
   setLocationResolved,
+  setAppError,
 ) {
   useEffect(() => {
     const fetchLocation = async () => {
@@ -34,7 +35,8 @@ export function useDefaultLocation(
             setCityLocation(userLocation);
             setLocationResolved(true);
           } catch (error) {
-            console.log(error);
+            console.log("An error occured in App", error);
+            setAppError(true);
           }
         },
         (error) => {
@@ -46,7 +48,7 @@ export function useDefaultLocation(
           ERROR.MESSAGE RETURNS A STRING DESCRIBING THE ERROR
         */
 
-          if (error.code === 1 || error.code === 2) {
+          if (error.code === 1 || error.code === 2 || error.code === 3) {
             const defaultLocation = {
               name: "Lagos",
               country: "Nigeria",
