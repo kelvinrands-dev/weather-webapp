@@ -17,7 +17,6 @@ function App() {
   const [locationResolved, setLocationResolved] = useState(false);
 
   useDefaultLocation(setCityLocation, setAppIsLoading, setLocationResolved);
-  //console.log(cityLocation);
 
   useFetchWeather(
     cityLocation,
