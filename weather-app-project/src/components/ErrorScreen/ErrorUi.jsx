@@ -3,7 +3,9 @@ import ErrorIcon from "../../assets/icons/icon-error.svg";
 import RetryIcon from "../../assets/icons/icon-retry.svg";
 
 export function ErrorUi() {
-  const handleRetry = () => {};
+  const handleRetry = () => {
+    window.location.reload();
+  };
   return (
     <section className="error-section">
       <img className="error-icon" src={ErrorIcon} />

@@ -43,6 +43,7 @@ export function useFetchWeather(
 
         setWeatherForecast(res.data);
         setAppIsLoading(false);
+        setAppError(false);
       } catch (error) {
         console.error("Error fetching forecast:", error.message);
         setAppError(true);
@@ -56,5 +57,6 @@ export function useFetchWeather(
     setAppIsLoading,
     locationResolved,
     currentUnits,
+    setAppError,
   ]);
 }
