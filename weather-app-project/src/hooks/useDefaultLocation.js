@@ -52,5 +52,5 @@ export function useDefaultLocation(
     };
 
     fetchLocation();
-  }, [setCityLocation, setAppIsLoading]);
+  }, [setCityLocation, setAppIsLoading, setLocationResolved]);
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect, useSyncExternalStore } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "./components/HeaderSection/Header";
 import { SearchPlace } from "./components/SearchSection/SearchPlace";
 import { CurrentForecastUi } from "./components/CurrentForecastSection/CurrentForecastUi";
@@ -29,7 +29,10 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      <SearchPlace />
+      <SearchPlace
+        setCityLocation={setCityLocation}
+        setAppIsLoading={setAppIsLoading}
+      />
       <div className="weather-flex">
         <CurrentForecastUi
           cityLocation={cityLocation}

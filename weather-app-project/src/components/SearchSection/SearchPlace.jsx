@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SearchDrop } from "./SearchDrop";
 import "./SearchPlace.css";
 
-export function SearchPlace() {
+export function SearchPlace({ setCityLocation, setAppIsLoading }) {
   const [searchInput, setSearchInput] = useState("");
   const [showSearchDrop, setShowSearchDrop] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
@@ -88,6 +88,10 @@ export function SearchPlace() {
           showSearchDrop={showSearchDrop}
           searchResults={searchResults}
           searchStatus={searchStatus}
+          setCityLocation={setCityLocation}
+          setAppIsLoading={setAppIsLoading}
+          setShowSearchDrop={setShowSearchDrop}
+          setSearchInput={setSearchInput}
         />
       </div>
     </section>

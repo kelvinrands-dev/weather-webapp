@@ -1,9 +1,15 @@
 import "./SearchDrop.css";
 
-export function SearchDrop({ showSearchDrop, searchResults, searchStatus }) {
+export function SearchDrop({
+  showSearchDrop,
+  searchResults,
+  searchStatus,
+  setCityLocation,
+  setAppIsLoading,
+  setShowSearchDrop,
+  setSearchInput,
+}) {
   if (showSearchDrop === false) return null;
-
-  const updateCityLocation = (index) => {};
 
   return (
     <section className="search-dropdown">
@@ -22,7 +28,17 @@ export function SearchDrop({ showSearchDrop, searchResults, searchStatus }) {
             <button
               key={index}
               className="city-locations"
-              onClick={() => updateCityLocation(index)}
+              onClick={() => {
+                setShowSearchDrop(false);
+                setAppIsLoading(true);
+                setCityLocation({
+                  name: city.name,
+                  country: city.country,
+                  longitude: city.longitude,
+                  latitude: city.latitude,
+                });
+                setSearchInput("");
+              }}
             >
               {locationName}
             </button>
