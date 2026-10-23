@@ -52,5 +52,13 @@
   gap: 1rem;
   width: 100%;
   height: 22rem;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 1280px) {
+  .hour-flex {
+    height: 33.75rem;
+  }
 }

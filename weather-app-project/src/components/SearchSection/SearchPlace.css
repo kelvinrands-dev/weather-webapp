@@ -83,3 +83,10 @@
     margin: -0.25rem;
   }
 }
+
+@media (min-width: 1280px) {
+  .search-place {
+    width: 60rem;
+    gap: 1rem;
+  }
+}

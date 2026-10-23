@@ -48,6 +48,15 @@
 
 @media (min-width: 1280px) {
   .app-container {
-    padding: 1.5rem 2rem;
+    padding: 2rem 4rem;
+  }
+
+  .app-break {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .weather-flex {
+    margin-bottom: 0;
   }
 }

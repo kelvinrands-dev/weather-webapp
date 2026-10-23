@@ -29,3 +29,13 @@
     gap: 1rem;
   }
 }
+
+@media (min-width: 1280px) {
+  .weather-box.current-forecast-box {
+    height: 7rem;
+  }
+
+  .current-forecast-grid {
+    height: auto;
+  }
+}

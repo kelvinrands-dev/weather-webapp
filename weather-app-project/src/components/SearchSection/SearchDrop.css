@@ -28,3 +28,10 @@
     transform: translateY(3.5rem) translateX(-3rem);
   }
 }
+
+@media (min-width: 1280px) {
+  .search-dropdown {
+    width: 41.75%;
+    transform: translateY(3.5rem) translateX(-3rem);
+  }
+}
