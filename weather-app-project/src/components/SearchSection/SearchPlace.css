@@ -37,7 +37,7 @@
   background: transparent;
   outline: none;
   color: var(--Neutral-200);
-  width: 80%;
+  flex: 1;
   font-weight: var(--weight-semibold);
 }
 
@@ -60,4 +60,26 @@
   padding: 0.75rem 1rem;
   border-radius: var(--bd-radius-s);
   font-weight: var(--weight-semibold);
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  .search-place-section > :nth-child(1) {
+    width: auto;
+  }
+
+  .search-place {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .search-input-container {
+    width: 50%;
+  }
+
+  .clear-btn {
+    all: unset;
+    width: 1.75rem;
+    margin: -0.25rem;
+  }
 }
