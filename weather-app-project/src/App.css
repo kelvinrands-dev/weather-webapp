@@ -26,3 +26,10 @@
   gap: 1rem;
   margin-bottom: 1rem;
 }
+
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  .app-container {
+    padding: 1.25rem 1.5rem;
+  }
+}

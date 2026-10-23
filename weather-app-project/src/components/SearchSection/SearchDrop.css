@@ -21,3 +21,10 @@
   all: unset;
   font-size: 0.75rem;
 }
+
+@media (min-width: 768px) {
+  .search-dropdown {
+    width: 50%;
+    transform: translateY(3.5rem) translateX(-3rem);
+  }
+}

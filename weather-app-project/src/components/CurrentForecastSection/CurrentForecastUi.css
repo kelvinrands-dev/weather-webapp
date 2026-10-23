@@ -57,10 +57,9 @@
 }
 
 /*LOADING UI*/
-.currrent-forecast-bg-loading {
+.current-forecast-bg.currrent-forecast-bg-loading {
   display: flex;
   flex-direction: column;
-  /* background: url(PATH) REPEAT POSITION / SIZE; */
   background: var(--Neutral-800);
   height: 17rem;
   width: 100%rem;
@@ -82,4 +81,29 @@
 .loading-gif {
   margin: -1rem 0;
   width: 5rem;
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 768px) {
+  .current-forecast-bg {
+    background: url("/images/bg-today-large.svg") no-repeat center / cover;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .current-forecast-bg > :nth-child(1) {
+    text-align: left;
+  }
+
+  .current-forecast-bg > :nth-child(2) {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+  }
+
+  .weather-icon {
+    margin-left: 0;
+  }
 }
