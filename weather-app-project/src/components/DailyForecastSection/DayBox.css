@@ -1,5 +1,10 @@
 .weather-box.day-box {
   align-items: center;
+  height: auto;
+}
+
+.weather-box.day-box-loading {
+  align-items: center;
   height: 10rem;
 }
 
@@ -20,10 +25,4 @@
 
 .day-box-temps > :nth-child(2) {
   color: var(--Neutral-200);
-}
-
-@media (min-width: 900px) {
-  .weather-box.day-box {
-    height: 12rem;
-  }
 }

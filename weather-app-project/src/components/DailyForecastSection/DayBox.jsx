@@ -5,7 +5,7 @@ export function DayBox({ date, weatherCode, tempMax, tempMin, appIsLoading }) {
   return (
     <>
       {appIsLoading ? (
-        <div className="weather-box day-box"></div>
+        <div className={`weather-box day-box-loading`}></div>
       ) : (
         <div className="weather-box day-box">
           <p>{date}</p>

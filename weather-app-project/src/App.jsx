@@ -1,8 +1,8 @@
 import { useState } from "react";
+
 import { Header } from "./components/HeaderSection/Header";
 import { SearchPlace } from "./components/SearchSection/SearchPlace";
 import { CurrentForecastUi } from "./components/CurrentForecastSection/CurrentForecastUi";
-
 import { DailyForecastUi } from "./components/DailyForecastSection/DailyForecastUi";
 import { HourlyForecastUi } from "./components/HourlyForecastSection/HourlyForecastUi.jsx";
 import { ErrorUi } from "./components/ErrorScreen/ErrorUi.jsx";
@@ -52,26 +52,28 @@ function App() {
 
       {appError && <ErrorUi />}
 
-      {!appError && (
-        <div className="weather-flex">
-          <CurrentForecastUi
-            cityLocation={cityLocation}
-            weatherForecast={weatherForecast}
-            appIsLoading={appIsLoading}
-          />
-          <DailyForecastUi
-            weatherForecast={weatherForecast}
-            appIsLoading={appIsLoading}
-          />
-        </div>
-      )}
+      <div className="app-break">
+        {!appError && (
+          <div className="weather-flex">
+            <CurrentForecastUi
+              cityLocation={cityLocation}
+              weatherForecast={weatherForecast}
+              appIsLoading={appIsLoading}
+            />
+            <DailyForecastUi
+              weatherForecast={weatherForecast}
+              appIsLoading={appIsLoading}
+            />
+          </div>
+        )}
 
-      {!appError && (
-        <HourlyForecastUi
-          weatherForecast={weatherForecast}
-          appIsLoading={appIsLoading}
-        />
-      )}
+        {!appError && (
+          <HourlyForecastUi
+            weatherForecast={weatherForecast}
+            appIsLoading={appIsLoading}
+          />
+        )}
+      </div>
     </div>
   );
 }
